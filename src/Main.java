@@ -9,45 +9,38 @@ public class Main {
         Катя из города Калининград, которой 28 лет
         Артем из города Москва, которому 27 лет
         * */
-        LocalDate localDate = LocalDate.now();
+        task1_2();
+        task3();
 
-        LocalDate birthDayNax = LocalDate.of(1987, 4, 12);
-        Human humanMax = new Human();
-        humanMax.setName("Максим");
-        humanMax.setCurrentCity("Минск");
-        humanMax.setBirthDate(localDate.getYear() - birthDayNax.getYear());
-        humanMax.setPosition("бренд-менеджером");
+
+    }
+
+    public static void task1_2 (){
+        LocalDate localDate = LocalDate.now();
+        LocalDate birthDayMax = LocalDate.of(1987, 4, 12);
+        int age = localDate.getYear() - birthDayMax.getYear();
+        Human humanMax = new Human("Максим", age, "Минск", "бренд-менеджером");
         System.out.println(humanMax.getName() + " из города " + humanMax.getCurrentCity() + ", которому " +humanMax.getBirthDate() + " лет");
 
-
         LocalDate birthDayAnya = LocalDate.of(1993, 4, 12);
-        Human humanAnya = new Human();
-        humanAnya.setName("Аня");
-        humanAnya.setCurrentCity("Москва");
-        humanAnya.setBirthDate(localDate.getYear() - birthDayAnya.getYear());
-        humanAnya.setPosition("методистом образовательных программ");
+        age = localDate.getYear() - birthDayAnya.getYear();
+        Human humanAnya = new Human("Аня", age, "Москва", "методистом образовательных программ");
         System.out.println(humanAnya.getName() + " из города " + humanAnya.getCurrentCity() + ", которой " +humanAnya.getBirthDate() + " лет");
 
         LocalDate birthDayKatya = LocalDate.of(1994, 4, 12);
-        Human humanKatya = new Human();
-        humanKatya.setName("Катя");
-        humanKatya.setCurrentCity("Калининград");
-        humanKatya.setBirthDate(localDate.getYear() - birthDayKatya.getYear());
-        humanKatya.setPosition("продакт-менеджером");
+        age = localDate.getYear() - birthDayKatya.getYear();
+        Human humanKatya = new Human("Катя", age, "Калининград", "продакт-менеджером");
         System.out.println(humanKatya.getName() + " из города " + humanKatya.getCurrentCity() + ", которой " +humanKatya.getBirthDate() + " лет");
 
         LocalDate birthDayArtem = LocalDate.of(1995, 4, 12);
-        Human humanArtem = new Human();
-        humanArtem.setName("Артем");
-        humanArtem.setCurrentCity("Москва");
-        humanArtem.setBirthDate(localDate.getYear() - birthDayArtem.getYear());
-        humanArtem.setPosition("директором по развитию бизнеса");
+        age = localDate.getYear() - birthDayArtem.getYear();
+        Human humanArtem = new Human("Артем", age, "Москва", "директором по развитию бизнеса" );
         System.out.println(humanArtem.getName() + " из города " + humanArtem.getCurrentCity() + ", которому " +humanArtem.getBirthDate() + " лет");
 
         System.out.println("Привет! Меня зовут "+humanMax.getName()+
-                            "\nЯ из города " +humanMax.getCurrentCity() +
-                            "\nЯ родился в "+ birthDayNax.getYear()+" году. " +
-                            "\nЯ работаю на должности "+humanMax.getPosition()+" Будем знакомы!\n");
+                "\nЯ из города " +humanMax.getCurrentCity() +
+                "\nЯ родился в "+ birthDayMax.getYear()+" году. " +
+                "\nЯ работаю на должности "+humanMax.getPosition()+" Будем знакомы!\n");
         System.out.println("Привет! Меня зовут "+humanAnya.getName()+
                 "\nЯ из города " +humanAnya.getCurrentCity() +
                 "\nЯ родился в "+ birthDayAnya.getYear()+" году. " +
@@ -60,6 +53,8 @@ public class Main {
                 "\nЯ из города " +humanArtem.getCurrentCity() +
                 "\nЯ родился в "+ birthDayArtem.getYear()+" году. " +
                 "\nЯ работаю на должности "+humanArtem.getPosition()+" Будем знакомы!\n");
+    }
+    public static void task3 (){
 
     }
 }
