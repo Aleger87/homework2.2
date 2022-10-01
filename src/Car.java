@@ -8,6 +8,12 @@ public class Car {
     private int manufactureYear;
     private String country;
 
+    private Car[] cars;
+
+    public Car (){
+        cars = new Car[0];
+    }
+
 
     public Car(String brand, String model,int manufactureYear,  String country, String color, float volumeEngine) {
         this.brand = brand;
@@ -16,30 +22,21 @@ public class Car {
         this.color = color;
         this.manufactureYear = manufactureYear;
         this.country = country;
+        cars = new Car[0];
+
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
 
-    public void setVolumeEngine(float volumeEngine) {
-        this.volumeEngine = volumeEngine;
+    public Car[] getCars() {
+        if (cars == null){
+            cars = new Car[0];
+        }
+        return cars;
     }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public void setManufactureYear(int manufactureYear) {
-        this.manufactureYear = manufactureYear;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
+    public void addCars (Car car){
+     this.cars = Arrays.copyOf(getCars(),  getCars().length+1);
+     this.cars[this.cars.length-1] = car;
     }
 
     public String getBrand() {

@@ -10,7 +10,7 @@ public class Main {
         Катя из города Калининград, которой 28 лет
         Артем из города Москва, которому 27 лет
         * */
-        task1_2();
+        //task1_2();
         task3();
 
 
@@ -64,21 +64,21 @@ public class Main {
         Hyundai Avante, сборка в Южной Корее, цвет кузова оранжевый, объем двигателя - 1,6 литра, год выпуска - 2016 год.
         * */
 
-
+        Car cars = new Car();
         Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f);
-        printCarInfo (lada);
+        cars.addCars(lada);
         Car audi = new Car("Audi", "A8", 2020, "Германия", "черный", 3.0f);
-        printCarInfo (audi);
+        cars.addCars(audi);
         Car bmw = new Car("BMW", "Z8", 2021, "Германия", "черный", 3.0f);
-        printCarInfo (bmw);
+        cars.addCars(bmw);
         Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f);
-        printCarInfo (kia);
+        cars.addCars(kia);
         Car hyundai = new Car("Hyundai", "Avante", 2016, "Южная Корея", "оранжевый", 1.6f);
-        printCarInfo (hyundai);
+        cars.addCars(hyundai);
 
-
-
-
+        for (int i = 0; i < cars.getCars().length; i++) {
+            printCarInfo(cars.getCars()[i]);
+        }
     }
 
     private static void printCarInfo(Car car) {
