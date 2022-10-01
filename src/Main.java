@@ -1,5 +1,6 @@
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.Arrays;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -55,6 +56,34 @@ public class Main {
                 "\nЯ работаю на должности "+humanArtem.getPosition()+" Будем знакомы!\n");
     }
     public static void task3 (){
+        /*
+        Lada Grande, 2015 год выпуска, сборка в России, желтого цвета, объем двигателя - 1,7
+        Audi A8 50 L TDI quattro, 2020 год выпуска, сборка в Германии, черный цвет кузова, объем двигателя 3.0 литра
+        BMW Z8, сборка в Германии в 2021 году, черный цвет кузова, объем – 3.0
+        Kia Sportage 4 поколение, 2018 год выпуска, сборка в Южной Корее, цвет кузова красный, объем двигателя – 2,4 литра.
+        Hyundai Avante, сборка в Южной Корее, цвет кузова оранжевый, объем двигателя - 1,6 литра, год выпуска - 2016 год.
+        * */
+
+
+        Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f);
+        printCarInfo (lada);
+        Car audi = new Car("Audi", "A8", 2020, "Германия", "черный", 3.0f);
+        printCarInfo (audi);
+        Car bmw = new Car("BMW", "Z8", 2021, "Германия", "черный", 3.0f);
+        printCarInfo (bmw);
+        Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f);
+        printCarInfo (kia);
+        Car hyundai = new Car("Hyundai", "Avante", 2016, "Южная Корея", "оранжевый", 1.6f);
+        printCarInfo (hyundai);
+
+
+
 
     }
+
+    private static void printCarInfo(Car car) {
+        System.out.println(car.getBrand()+ ", " + car.getModel()+ ", год выпуска, " + car.getManufactureYear() + ", сборка в  " + car.getCountry() + ", цвет " + car.getColor() + ", объем двигателя " + car.getVolumeEngine() +" литра");
+    }
+
+
 }
