@@ -10,22 +10,44 @@ public class Car {
 
     private Car[] cars;
 
-    public Car (){
-        cars = new Car[0];
+    public Car(){
+
+        this ("default", "default", 2000, "default", "белый", 1.5f);
     }
 
-
-    public Car(String brand, String model,int manufactureYear,  String country, String color, float volumeEngine) {
-        this.brand = brand;
-        this.model = model;
-        this.volumeEngine = volumeEngine;
-        this.color = color;
-        this.manufactureYear = manufactureYear;
-        this.country = country;
+    public Car(String brand, String model, int manufactureYear,  String country, String color, float volumeEngine) {
+        if (brand == null) {
+            this.brand = "default";
+        }else {
+            this.brand = brand;
+        }
+        if (model == null) {
+            this.model = "default";
+        }else {
+            this.model = model;
+        }
+        if (manufactureYear == 0) {
+            this.manufactureYear = 2000;
+        } else {
+            this.manufactureYear = manufactureYear;
+        }
+        if (country == null) {
+            this.country = "default";
+        }else {
+            this.country = country;
+        }
+        if (color == null) {
+            this.color = "белый";
+        }else {
+            this.color = color;
+        }
+        if (volumeEngine == 0.0f) {
+            this.volumeEngine = 1.5f;
+        }else {
+            this.volumeEngine = volumeEngine;
+        }
         cars = new Car[0];
-
     }
-
 
 
     public Car[] getCars() {

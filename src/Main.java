@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.Arrays;
 
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
         Катя из города Калининград, которой 28 лет
         Артем из города Москва, которому 27 лет
         * */
-        //task1_2();
+        task1_2();
         task3();
 
 
@@ -65,6 +64,7 @@ public class Main {
         * */
 
         Car cars = new Car();
+        cars.addCars(cars);
         Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f);
         cars.addCars(lada);
         Car audi = new Car("Audi", "A8", 2020, "Германия", "черный", 3.0f);
@@ -73,17 +73,24 @@ public class Main {
         cars.addCars(bmw);
         Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f);
         cars.addCars(kia);
-        Car hyundai = new Car("Hyundai", "Avante", 2016, "Южная Корея", "оранжевый", 1.6f);
+        Car hyundai = new Car(null, null, 0, "Южная Корея", null, 1.6f);
         cars.addCars(hyundai);
 
         for (int i = 0; i < cars.getCars().length; i++) {
             printCarInfo(cars.getCars()[i]);
         }
+        Human man = new Human();
+
+        Human artem = new Human("Артем", -21, "Москва", "директором по развитию бизнеса" );
+        System.out.println(artem.getBirthDate());
     }
 
     private static void printCarInfo(Car car) {
         System.out.println(car.getBrand()+ ", " + car.getModel()+ ", год выпуска, " + car.getManufactureYear() + ", сборка в  " + car.getCountry() + ", цвет " + car.getColor() + ", объем двигателя " + car.getVolumeEngine() +" литра");
     }
+
+
+
 
 
 }
