@@ -5,6 +5,22 @@ public class Human {
     private String currentCity;
     private String position;
 
+    public void setBirthDate(int birthDate) {
+        if (this.birthDate <= 0) {
+            this.birthDate = birthDate;
+        }else {
+            this.birthDate = 0;
+        }
+    }
+
+    public void setCurrentCity(String currentCity) {
+        if (this.currentCity == null || this.currentCity.isEmpty() || this.currentCity.isBlank()) {
+            this.currentCity = currentCity;
+        }else{
+            this.currentCity = "Информация не указана";
+        }
+
+    }
 
     public Human() {
         new Human(null,0,null,null);
