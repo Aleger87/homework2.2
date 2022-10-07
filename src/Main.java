@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Scanner;
 
 
 public class Main {
@@ -11,9 +12,12 @@ public class Main {
         * */
         task1_2();
         task3();
+        task4();
 
 
     }
+
+
 
     public static void task1_2 (){
         LocalDate localDate = LocalDate.now();
@@ -89,8 +93,68 @@ public class Main {
         System.out.println(car.getBrand()+ ", " + car.getModel()+ ", год выпуска, " + car.getManufactureYear() + ", сборка в  " + car.getCountry() + ", цвет " + car.getColor() + ", объем двигателя " + car.getVolumeEngine() +" литра");
     }
 
+    private static void task4() {
+        Flower flowers = new Flower(null, null, 0);
+        Flower rose = new Flower("Роза", "Голландия", 35.59f);
+        flowers.addFlowers(rose);
+        Flower chrysanthemum = new Flower("Хризантема", null, 15.5f);
+        flowers.addFlowers(chrysanthemum);
+        Flower pion = new Flower( "Пион", "Англия", 69.90f);
+        flowers.addFlowers(pion);
+        Flower gypsophila = new Flower("Гипсофила", "Турция", 19.5f);
+        flowers.addFlowers(gypsophila);
 
 
+        additionalTask(flowers.getFlowers());
+
+
+    }
+
+    private static void printFlowers(Flower flower) {
+        System.out.println("артикул - " + flower.getId()+" "+flower.getName() +", страна происхождения — " + flower.getCountry()+", стоимость штуки — " + flower.getCost() + " рублей, срок стояния — "+flower.getLifeSpan() + " дней, цвет - "+flower.getFlowerColor());
+    }
+
+    private static void additionalTask(Flower[] flowers) {
+        System.out.println("Давайте соберем букет, вот наш ассортимент:");
+        for (int i = 0; i < flowers.length; i++) {
+            printFlowers(flowers[i]);
+        }
+        System.out.println("Выберите артикул цветка и укажите количество через '-' затем ','(например 1-5,2-6,3-1)");
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder s = new StringBuilder(scanner.nextLine());
+        validData(s);
+
+        float sum = 0f;
+        int lifeSpan = 0;
+        System.out.println("Ваш заказ:");
+
+        for (int i = 0; i < s.length(); i=i+2) {
+            for (int i1 = 0; i1 < flowers.length; i1++) {
+                if (Integer.parseInt(String.valueOf(s.charAt(i))) == flowers[i1].getId()){
+
+                    System.out.print(flowers[i1].getName()+" - "+s.charAt(i+1) + " шт., ");
+                    sum = (float) (sum + (Integer.parseInt(String.valueOf(s.charAt(i+1))) * flowers[i1].getCost()));
+                    if (lifeSpan < flowers[i1].getLifeSpan()) {
+                        lifeSpan = flowers[i1].getLifeSpan();
+                    }
+
+                }
+            }
+        }
+        float sum1 = sum * 0.1f + sum;
+        String summ = String.format("%.2f", sum1) ;
+        System.out.print(" на сумму " + summ + " рублей" + " срок стояния " + lifeSpan + " дней");
+
+    }
+
+    private static StringBuilder validData(StringBuilder s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i)=='-' || s.charAt(i)==',') {
+                s.deleteCharAt(i);
+            }
+        }
+        return s;
+    }
 
 
 }
