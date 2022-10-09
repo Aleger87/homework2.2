@@ -75,16 +75,29 @@ public class Main {
         * */
 
         Car cars = new Car();
+        Car.Key keyTrue = new Car.Key(true,true);
+        Car.Key keyFalse = new Car.Key(false,false);
+        Car.Key keyFalseTrue = new Car.Key(false,true);
+        Car.Key keyTrueFalse = new Car.Key(true,false);
 
-        Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f,null, null,"В100АP7811",0,true);
+        Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f,
+                null,null,"В100АP7811",0,true, keyTrue);
         cars.addCars(lada);
-        Car audi = new Car("Audi", "A8", 2020, "Германия", "черный", 3.0f,null, null,null,0,false);
+
+         Car audi = new Car("Audi", "A8", 2020,
+                "Германия", "черный", 3.0f,null, null,null,0,false, keyFalseTrue);
         cars.addCars(audi);
-        Car bmw = new Car("BMW", "Z8", 2021, "Германия", "черный", 3.0f,null, null,null,0,true);
+
+        Car bmw = new Car("BMW", "Z8", 2021, "Германия", "черный", 3.0f,
+                null, null,null,0,true, keyFalse);
         cars.addCars(bmw);
-        Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f,null, null,null,0,false);
+
+        Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f,
+                null, null,null,0,false, keyTrueFalse);
         cars.addCars(kia);
-        Car hyundai = new Car("Hyundai", null, 0, "Южная Корея", null, 1.6f,null, null,null,0,false);
+
+        Car hyundai = new Car("Hyundai", null, 0, "Южная Корея", null, 1.6f,
+                null, null,null,0,false, keyTrue);
         cars.addCars(hyundai);
 
         for (int i = 0; i < cars.getCars().length; i++) {

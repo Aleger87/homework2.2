@@ -6,18 +6,45 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Car {
+    public static class Key {
+        private boolean remoteEngineStart;
+        private boolean keylessAccess;
+
+
+
+        public Key(boolean remoteEngineStart, boolean keylessAccess) {
+            this.remoteEngineStart = remoteEngineStart;
+            this.keylessAccess = keylessAccess;
+        }
+
+
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+
+        public boolean isKeylessAccess() {
+            return keylessAccess;
+        }
+    }
     private String brand;
     private String model;
     private int manufactureYear;
     private String country;
     private String color;
-    private float volumeEngine;
 
+    private float volumeEngine;
     private String transmission;
     private String bodyType;
     private String registrationNumber;
     private int seat;
+
     private boolean winterTire;
+
+    private Key key;
+
+    public Key getKey() {
+        return key;
+    }
 
     public void setWinterTire(boolean winterTire) {
         this.winterTire = winterTire;
@@ -31,12 +58,12 @@ public class Car {
 
     public Car(){
 
-        this ("default", "default", 2000, "default", "белый", 1.5f, null, null,null,0,false);
+        this ("default", "default", 2000, "default", "белый", 1.5f, null, null,null,0,false,null);
     }
 
     public Car(String brand, String model, int manufactureYear,  String country, String color,
                float volumeEngine, String transmission, String bodyType, String registrationNumber,
-                int seat, boolean winterTire) {
+                int seat, boolean winterTire, Key key) {
 
         this.winterTire = winterTire;
 
@@ -219,5 +246,7 @@ public class Car {
         }
 
     }
+
+
 
 }
