@@ -65,6 +65,9 @@ public class Main {
         Human artem = new Human("Артем", -21, "Москва", "директором по развитию бизнеса" );
         System.out.println(artem.getBirthDate());
     }
+
+
+
     public static void task3 (){
         /*
         Lada Grande, 2015 год выпуска, сборка в России, желтого цвета, объем двигателя - 1,7
@@ -81,8 +84,11 @@ public class Main {
         Car.Key keyTrueFalse = new Car.Key(true,false);
 
         Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f,
-                null,null,"В100АP7811",0,true, keyTrue);
+                null,null,"В100АP781",0,true, keyTrue);
         cars.addCars(lada);
+        Car.Insurance ins =  lada.new Insurance(360,3000,"12345678F");
+        lada.setInsurance(ins);
+        System.out.println(lada.getInsurance().getNumberInsurance());
 
          Car audi = new Car("Audi", "A8", 2020,
                 "Германия", "черный", 3.0f,null, null,null,0,false, keyFalseTrue);

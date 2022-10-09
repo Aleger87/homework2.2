@@ -5,7 +5,57 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
 public class Car {
+    public class Insurance{
+        private int periodDayInsurance;
+        private float costInsurance;
+        private String numberInsurance;
+
+        public Insurance(int periodDayInsurance, float costInsurance, String numberInsurance) {
+           if (periodDayInsurance != 0) {
+               checkPeriodInsurance(periodDayInsurance);
+               this.periodDayInsurance = periodDayInsurance;
+           }
+
+            this.costInsurance = costInsurance;
+
+           if (numberInsurance == null || numberInsurance.isEmpty() || numberInsurance.isBlank()) {
+                this.numberInsurance = "default";
+            }else{
+               chekNumberInsurance(numberInsurance);
+                this.numberInsurance = numberInsurance;
+            }
+        }
+
+        private void chekNumberInsurance(String numberInsurance) {
+            if (numberInsurance.length() != 9) {
+                System.out.println("Номер страховки некорректный");
+                System.exit(-1);
+            }
+        }
+
+        private void checkPeriodInsurance(int periodDayInsurance) {
+            if (periodDayInsurance <= 0 || periodDayInsurance > 365) {
+                System.out.println("нужно срочно ехать оформлять новую страховку");
+                System.exit(-1);
+            }
+        }
+
+        public int getPeriodInsurance() {
+            return periodDayInsurance;
+        }
+
+        public float getCostInsurance() {
+            return costInsurance;
+        }
+
+        public String getNumberInsurance() {
+            return numberInsurance;
+        }
+    }
+
     public static class Key {
         private boolean remoteEngineStart;
         private boolean keylessAccess;
@@ -46,6 +96,16 @@ public class Car {
         return key;
     }
 
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
+    Insurance insurance;
+
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
     public void setWinterTire(boolean winterTire) {
         this.winterTire = winterTire;
     }
@@ -58,12 +118,18 @@ public class Car {
 
     public Car(){
 
-        this ("default", "default", 2000, "default", "белый", 1.5f, null, null,null,0,false,null);
+        this ("default", "default", 2000, "default", "белый", 1.5f,
+                null, null,null,0,false,null);
     }
 
     public Car(String brand, String model, int manufactureYear,  String country, String color,
                float volumeEngine, String transmission, String bodyType, String registrationNumber,
                 int seat, boolean winterTire, Key key) {
+
+        if (key == null) {
+            Key newKey = new Key(false, false);
+            this.key = newKey;
+        }
 
         this.winterTire = winterTire;
 
@@ -203,6 +269,9 @@ public class Car {
         return seat;
     }
 
+
+
+
     public void checkTire(Car[] cars) {
         int[] month = {10,11,12,1,2,3}; //зимняя резина
         LocalDate localDate = LocalDate.now();
@@ -235,14 +304,14 @@ public class Car {
         final Matcher matcher = pattern.matcher(string);
 
         if (matcher.find()) {
-            System.out.println("Полное соответствие: " + matcher.group(0));
+            //System.out.println("Полное соответствие: " + matcher.group(0));
 
             for (int i = 1; i <= matcher.groupCount(); i++) {
                 System.out.println("Группа " + i + ": " + matcher.group(i));
             }
         }else{
             System.out.println("Номер автомобиля " + this.getBrand() + " не соответствует");
-            System.exit(1);
+            System.exit(-1);
         }
 
     }
