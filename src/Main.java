@@ -1,3 +1,5 @@
+import transport.Car;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -10,9 +12,9 @@ public class Main {
         Катя из города Калининград, которой 28 лет
         Артем из города Москва, которому 27 лет
         * */
-        task1_2();
+        //task1_2();
         task3();
-        task4();
+        //task4();
 
 
     }
@@ -57,6 +59,11 @@ public class Main {
                 "\nЯ из города " +humanArtem.getCurrentCity() +
                 "\nЯ родился в "+ birthDayArtem.getYear()+" году. " +
                 "\nЯ работаю на должности "+humanArtem.getPosition()+" Будем знакомы!\n");
+
+        Human man = new Human();
+
+        Human artem = new Human("Артем", -21, "Москва", "директором по развитию бизнеса" );
+        System.out.println(artem.getBirthDate());
     }
     public static void task3 (){
         /*
@@ -68,29 +75,32 @@ public class Main {
         * */
 
         Car cars = new Car();
-        cars.addCars(cars);
-        Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f);
+
+        Car lada = new Car("Lada", "Grande", 2015, "Россия", "Желтый", 1.7f,null, null,"В100АP7811",0,true);
         cars.addCars(lada);
-        Car audi = new Car("Audi", "A8", 2020, "Германия", "черный", 3.0f);
+        Car audi = new Car("Audi", "A8", 2020, "Германия", "черный", 3.0f,null, null,null,0,false);
         cars.addCars(audi);
-        Car bmw = new Car("BMW", "Z8", 2021, "Германия", "черный", 3.0f);
+        Car bmw = new Car("BMW", "Z8", 2021, "Германия", "черный", 3.0f,null, null,null,0,true);
         cars.addCars(bmw);
-        Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f);
+        Car kia = new Car("Kia", "Sportage 4 поколение", 2018, "Южная Корея", "красный", 2.4f,null, null,null,0,false);
         cars.addCars(kia);
-        Car hyundai = new Car(null, null, 0, "Южная Корея", null, 1.6f);
+        Car hyundai = new Car("Hyundai", null, 0, "Южная Корея", null, 1.6f,null, null,null,0,false);
         cars.addCars(hyundai);
 
         for (int i = 0; i < cars.getCars().length; i++) {
             printCarInfo(cars.getCars()[i]);
         }
-        Human man = new Human();
 
-        Human artem = new Human("Артем", -21, "Москва", "директором по развитию бизнеса" );
-        System.out.println(artem.getBirthDate());
+        cars.checkTire(cars.getCars());
+
+
     }
 
+
+
     private static void printCarInfo(Car car) {
-        System.out.println(car.getBrand()+ ", " + car.getModel()+ ", год выпуска, " + car.getManufactureYear() + ", сборка в  " + car.getCountry() + ", цвет " + car.getColor() + ", объем двигателя " + car.getVolumeEngine() +" литра");
+
+        System.out.println(car.getBrand()+ ", " +" номер "+ car.getRegistrationNumber()+ " " + car.getModel()+ ", год выпуска, " + car.getManufactureYear() + ", сборка в  " + car.getCountry() + ", цвет " + car.getColor() + ", объем двигателя " + car.getVolumeEngine() +" литра");
     }
 
     private static void task4() {
